@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<nav th:fragment="navbar">
+  <a th:href="@{/demo3_2/index}" th:text="#{nav.home}">Home</a> ||
+  <a th:href="@{/demo3_2/about}" th:text="#{nav.about}">Abouts Us</a> ||
+  <a th:href="@{/student/form}" th:text="#{nav.student}">Student</a> ||
+  <a th:href="@{/student/validate/form}" th:text="#{nav.validate}">Validate</a> ||
+  [<a href="?lang=vi">Tieng Viet</a>]
+  [<a href="?lang=en">English</a>]
+</nav>
+</body>
+</html>

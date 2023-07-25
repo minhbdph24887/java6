@@ -1,0 +1,249 @@
+﻿CREATE DATABASE Team8_DuAn1
+
+GO
+-- ThietKe
+CREATE TABLE ThietKe(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE,
+Ten NVARCHAR(50) DEFAULT NULL 
+)
+insert into ThietKe values
+('ma02',N'dương')
+select *
+from 
+ThietKe
+
+
+GO
+-- DoiTuongSuDung
+CREATE TABLE DoiTuongSuDung(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL, 
+KichThuoc DECIMAL(20,2) DEFAULT NULL,
+)
+insert into DoiTuongSuDung values
+('ma02',N'người lớn',3.3)
+select *
+from
+DoiTuongSuDung
+
+
+GO
+-- NSX
+CREATE TABLE NSX(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL, 
+QuocGia NVARCHAR(50) DEFAULT NULL, 
+)
+insert into NSX values
+('ma01',N'FPT',N'VN')
+select *
+from
+NSX
+
+
+GO
+-- MauSac
+CREATE TABLE MauSac(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL 
+)
+insert into MauSac values
+('ma01',N'đỏ')
+select *
+from
+MauSac
+
+
+GO
+-- SanPham
+CREATE TABLE SanPham(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL 
+)
+insert into SanPham values
+('ma01',N'3D')
+select *
+from
+SanPham
+
+
+GO
+-- Lop
+CREATE TABLE Lop(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+SoLuong int DEFAULT NULL
+)
+insert into Lop values
+('5')
+select *
+from
+Lop
+
+
+GO
+--ChiTietSP
+CREATE TABLE ChiTietSP(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+NgaySanXuat Date DEFAULT NULL,
+HanSuDung Date DEFAULT NULL,
+Gia DECIMAL(20,0) DEFAULT NULL,
+MoTa NVARCHAR(50) DEFAULT NULL,
+TrongLuong DECIMAL(20,0) DEFAULT NULL,
+SoLuong int DEFAULT NULL,
+TrangThai INT DEFAULT 0 ,
+IdTK BIGINT , 
+IdDTSD BIGINT , 
+IdNSX BIGINT , 
+IdMS BIGINT , 
+IdSP BIGINT , 
+IdLop BIGINT , 
+)
+insert into ChiTietSP values
+('2002-12-12','2002-12-12',10,N'không',5,20,DEFAULT,1,1,1,1,1,1)
+select *
+from
+ChiTietSP
+
+
+GO
+-- ChucVu
+CREATE TABLE ChucVu(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL 
+)
+insert into ChucVu values
+('ma01',N'quản lý')
+select *
+from
+ChucVu
+
+
+GO
+--NhanVien
+CREATE TABLE NhanVien(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL, 
+GioiTinh NVARCHAR(50) DEFAULT NULL,
+Email NVARCHAR(50) DEFAULT NULL,
+QueQuan NVARCHAR(50) DEFAULT NULL,
+NgaySinh Date DEFAULT NULL,
+Sdt VARCHAR(15) DEFAULT NULL,
+MatKhau NVARCHAR(50) DEFAULT NULL,
+TrangThai INT DEFAULT 0 ,
+IdChucVu BIGINT , 
+)
+insert into NhanVien values
+('ma01','dương',N'true',N'd@gmail.com',N'HN','2002-12-12','0123467890','1',DEFAULT,1)
+select *
+from
+NhanVien
+
+
+GO
+--KhachHang
+CREATE TABLE KhachHang(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL, 
+GioiTinh NVARCHAR(50) DEFAULT NULL,
+Email NVARCHAR(50) DEFAULT NULL,
+QueQuan NVARCHAR(50) DEFAULT NULL,
+NgaySinh Date DEFAULT NULL,
+Sdt VARCHAR(15) DEFAULT NULL,
+TrangThai INT DEFAULT 0 , 
+)
+insert into KhachHang values
+('ma01','dương',N'true',N'd@gmail.com',N'HN','2002-12-12','0123467890',DEFAULT)
+select *
+from
+KhachHang
+
+
+GO
+--PhieuGiamGia
+CREATE TABLE PhieuGiamGia(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE, 
+Ten NVARCHAR(50) DEFAULT NULL, 
+NgayBD Date DEFAULT NULL,
+NgayKT Date DEFAULT NULL,
+LoaiGiamGia NVARCHAR(50) DEFAULT NULL,
+HinhThucGiamGia VARCHAR(50) DEFAULT NULL,
+GiaTriGiam DECIMAL(20,0) DEFAULT NULL,
+TrangThai INT DEFAULT 0 , 
+)
+insert into PhieuGiamGia values
+('ma01','phiếu 1','2002-12-12','2002-12-12',N'loai 1',N'hinh 1',100,DEFAULT)
+select *
+from
+PhieuGiamGia
+
+
+GO
+--HoaDon
+CREATE TABLE HoaDon(
+Id BIGINT IDENTITY(1,1) PRIMARY KEY ,
+Ma VARCHAR(20) UNIQUE,
+NgayTao Date DEFAULT NULL,
+MoTa NVARCHAR(50) DEFAULT NULL,
+TrangThai INT DEFAULT 0 ,
+IdNV BIGINT ,
+IdKH BIGINT ,
+IdPhieuGiamGia BIGINT ,
+)
+insert into HoaDon values
+('ma01','2002-12-12',N'không',DEFAULT,1,1,1)
+select *
+from
+HoaDon
+
+
+GO
+-- HoaDonChiTiet
+CREATE TABLE HoaDonChiTiet(
+IdHoaDon BIGINT ,
+IdCTSP BIGINT ,
+SoLuong INT,
+DonGia DECIMAL(20,0) DEFAULT 0,
+TongTien DECIMAL(20,0), 
+TrangThai INT DEFAULT 0 ,
+CONSTRAINT PK_HoaDonChiTiet PRIMARY KEY (IdHoaDon,IdCTSP),
+CONSTRAINT FK1 FOREIGN KEY(IdHoaDon) REFERENCES HoaDon(Id),
+CONSTRAINT FK2 FOREIGN KEY(IdCTSP) REFERENCES ChiTietSP(Id),
+)
+insert into HoaDonChiTiet values
+(1,1,5,10,50,DEFAULT)
+select *
+from
+HoaDonChiTiet
+
+
+GO
+-- ChiTietSP - ThietKe
+ALTER TABLE ChiTietSP ADD FOREIGN KEY(IdTK) REFERENCES ThietKe(Id)
+-- ChiTietSP - DoiTuongSuDung
+ALTER TABLE ChiTietSP ADD FOREIGN KEY(IdDTSD) REFERENCES DoiTuongSuDung(Id)
+-- ChiTietSP - NSX
+ALTER TABLE ChiTietSP ADD FOREIGN KEY(IdNSX) REFERENCES NSX(Id)
+-- ChiTietSP - MauSac
+ALTER TABLE ChiTietSP ADD FOREIGN KEY(IdMS) REFERENCES MauSac(Id)
+-- ChiTietSP - SanPham
+ALTER TABLE ChiTietSP ADD FOREIGN KEY(IdSP) REFERENCES SanPham(Id)
+-- ChiTietSP - Lop
+ALTER TABLE ChiTietSP ADD FOREIGN KEY(IdLop) REFERENCES Lop(Id)
+--NhanVien - ChucVu
+ALTER TABLE NhanVien ADD FOREIGN KEY(IdChucVu) REFERENCES ChucVu(Id)
+--HoaDon - NhanVien
+ALTER TABLE HoaDon ADD FOREIGN KEY(IdNV) REFERENCES NhanVien(Id)
+--HoaDon - KhachHang
+ALTER TABLE HoaDon ADD FOREIGN KEY(IdKH) REFERENCES KhachHang(Id)
+-- HoaDon - PhieuGiamGia
+ALTER TABLE HoaDon ADD FOREIGN KEY(IdPhieuGiamGia) REFERENCES PhieuGiamGia(Id)
+

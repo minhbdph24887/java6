@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>UTILITY OBJECT</h3>
+<b>TONG HOP</b>
+<ul>
+    <li>Hom Nay: <i th:text="${#dates.format(now, 'EEE, dd-MM-yyyy')}"></i></li>
+    <li>So Luong Sinh Vien: <i th:text="${#lists.size(dssv)}"></i></li>
+</ul>
+<h3>DANH DACH SINH VIEN</h3>
+<ul th:each="sv:${dssv}" th:object="${sv}">
+    <li>
+        Ho Ten:
+        <b th:text="*{#strings.capitalizeWords(hoTen)}"></b>
+    </li>
+    <li>
+        Diem:
+        <b th:text="*{#numbers.formatDecimal(diem, 0, 'COMMA', 2, 'POINT')}"></b>
+    </li>
+    <li>
+        So Mon Hoc:
+        <b th:text="*{#arrays.length(monHoc)}"></b>
+    </li>
+</ul>
+</body>
+</html>

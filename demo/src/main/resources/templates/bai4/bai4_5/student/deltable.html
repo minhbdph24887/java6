@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table style="font-family: arial, sans-serif; border-collapse: collapse; width: 100%;">
+    <tr>
+        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Email Address</th>
+        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Full Name</th>
+        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Marks</th>
+        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Gender</th>
+        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Country</th>
+        <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Action</th>
+    </tr>
+    <tr th:each="entry: ${items}" th:object="${entry.value}">
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">[[*{email}]]</td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">[[*{fullname}]]</td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">[[*{marks}]]</td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">[[*{gender}]]</td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">[[*{country}]]</td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+            <a th:href="@{|/student4_5/edit/${entry.key}|}">Edit</a>
+            <a th:href="@{|/student4_5/delete/${entry.key}|}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

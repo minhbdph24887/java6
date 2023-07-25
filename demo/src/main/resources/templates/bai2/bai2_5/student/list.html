@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h3>Thymeleaf Flow Control Attribites</h3>
+<ul>
+  <li th:each="sv, state:${dssv}">
+    <a th:href="@{|/student/list?index=${state.index}|}" style="text-decoration: none">[[${sv.hoTen}]]</a>
+  </li>
+</ul>
+<h3>Student Details</h3>
+<ul th:object="${sv}">
+  <li><i>Ho Ten: </i> <b th:text="*{hoTen}"></b></li>
+  <li><i>Diem: </i> <b th:text="*{diem}"></b></li>
+  <li><i>Gioi Tinh: </i> <b th:text="*{gioiTinh} ? 'Nam' : 'Nu'"></b></li>
+  <li><i>Lien He: </i> <b th:text="*{lienHe.email}"></b></li>
+  <li><i>Mon Hoc: </i>
+    <ul>
+      <li th:each="monHoc: *{monHoc}">
+        <b th:text="${monHoc}"></b>
+      </li>
+    </ul>
+  </li>
+  <li th:switch="*{#arrays.length(monHoc)}">
+    <i>Thoi Gian:</i>
+    <b th:case="1">Moi Vao</b>
+    <b th:case="2">Dang Hoc</b>
+    <b th:case="*">Sap Ra Truong</b>
+  </li>
+  <li th:if="*{diem} >= 8.5">
+    <i>Thong Bao</i>
+    <b>Golden Bee</b>
+  </li>
+</ul>
+</body>
+</html>

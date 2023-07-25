@@ -1,0 +1,10 @@
+{
+  "hoTen": "Bui Duc Minh",
+  "gioiTinh": true,
+  "diem": 8.5,
+  "lienHe": {
+    "email": "minhbdph24887@fpt.edu.vn",
+    "dienThoai": "0388598451"
+  },
+  "monHoc": ["WEB205", "COM108"]
+}

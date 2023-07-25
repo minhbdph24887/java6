@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="~{/home/menu :: nav}"></nav>
+<hr>
+<h3>Login Form</h3>
+<hr>
+<i th:text="${message}" style="color: red"></i>
+<form action="/auth/login" method="post">
+    <input name="username" placeholder="Nhap UserName"><br>
+    <input name="password" placeholder="Nhap Password"><br>
+    <input type="checkbox" name="remember">Remember Me? <br>
+    <button>Login</button>
+</form>
+</body>
+</html>

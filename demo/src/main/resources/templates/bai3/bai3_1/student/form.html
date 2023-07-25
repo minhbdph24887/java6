@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" th:replace="~{/bai3/layout/layout :: dynamic(~{:: body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Data Binding</h3>
+<form action="/student/save" method="post" th:object="${sv}">
+    <input th:field="*{email}" placeholder="Nhap Email"><br>
+    <input th:field="*{hoVaTen}" placeholder="Nhap Ho Va Ten"><br>
+    <input th:field="*{diem}" placeholder="Nhap Diem"><br>
+    <input th:field="*{gioiTinh}" th:value="true" type="radio">Nam
+    <input th:field="*{gioiTinh}" th:value="false" type="radio">Nu<br>
+    <select th:field="*{queQuan}">
+        <option value="">Chon Que Quan</option>
+        <option value="VietNam">Viet Nam</option>
+        <option value="US">My</option>
+    </select>
+    <hr>
+    <button>Save</button>
+</form>
+</body>
+</html>

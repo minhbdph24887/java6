@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${form}" method="post">
+    <input th:field="*{email}" placeholder="Nhap Email"><br>
+    <input th:field="*{fullname}" placeholder="Nhap Ho Va Ten"><br>
+    <input th:field="*{marks}" placeholder="Nhap Diem"><br>
+    <input th:field="*{gender}" value="true" type="radio" checked="">Nam
+    <input th:field="*{gender}" value="false" type="radio">Nu <br>
+    <select th:field="*{country}">
+        <option value="VN">Viet Nam</option>
+        <option value="EN">Untied States</option>
+    </select>
+    <hr>
+    <button th:formaction="@{/student4_5/create}">Create</button>
+    <button th:formaction="@{|/student4_5/update/${key}|}">Update</button>
+    <button th:formaction="@{|/student4_5/delete/${key}|}">Delete</button>
+    <button th:formaction="@{/student4_5/index}">Resert</button>
+</form>
+</body>
+</html>

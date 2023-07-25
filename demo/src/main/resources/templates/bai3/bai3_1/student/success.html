@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" th:replace="~{/bai3/layout/layout :: dynamic(~{:: body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Result</h3>
+<ul th:object="${sv}">
+    <li>Email Da Them: <i th:text="*{email}"></i></li>
+    <li>Ho Va Ten Da Them: <i th:text="*{hoVaTen}"></i></li>
+    <li>Diem Da Them: <i th:text="*{diem}"></i></li>
+    <li>Gioi Tinh Da Them: <i th:text="*{gioiTinh} ? 'Nam' : 'Nu'"></i></li>
+    <li>Que Quan Da Them: <i th:text="*{queQuan}"></i></li>
+</ul>
+</body>
+</html>

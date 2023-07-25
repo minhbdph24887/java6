@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="~{/home/menu :: nav}"></nav>
+<hr>
+<h2 th:unless="${message}"></h2>
+<hr>
+<h3 th:unless="${#request.remoteUser}">Chua Dang Nhap</h3>
+<ul th:if="${#request.remoteUser}">
+    <li th:if="${#request.isUserInRole('ADMIN')}">ADMIN</li>
+    <li th:if="${#request.isUserInRole('USER')}">USER</li>
+    <li th:if="${#request.isUserInRole('GUEST')}">GUEST</li>
+</ul>
+</body>
+</html>

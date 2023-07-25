@@ -1,0 +1,69 @@
+[
+  {
+    "hoTen": "Bùi Đức Minh",
+    "gioiTinh": true,
+    "diem": 8.5,
+    "lienHe": {
+      "email": "minhbdph24887@fpt.edu.vn",
+      "dienThoai": "0388598451"
+    },
+    "monHoc": [
+      "WEB205",
+      "COM108",
+      "SOF203"
+    ]
+  },
+  {
+    "hoTen": "Nguyễn Thị Thúy Hiền",
+    "gioiTinh": false,
+    "diem": 8.5,
+    "lienHe": {
+      "email": "hiennttph25063@fpt.edu.vn",
+      "dienThoai": "0388598451"
+    },
+    "monHoc": [
+      "WEB205",
+      "SOF3021",
+      "SOF203"
+    ]
+  },
+  {
+    "hoTen": "Nguyễn Văn A",
+    "gioiTinh": true,
+    "diem": 8.0,
+    "lienHe": {
+      "email": "anguyenvan12@fpt.edu.vn",
+      "dienThoai": "0388598451"
+    },
+    "monHoc": [
+      "WEB205",
+      "WEB1013"
+    ]
+  },
+  {
+    "hoTen": "Trịnh Thị B",
+    "gioiTinh": false,
+    "diem": 8.1,
+    "lienHe": {
+      "email": "btrinhthi23@fpt.edu.vn",
+      "dienThoai": "0388598451"
+    },
+    "monHoc": [
+      "WEB205",
+      "MOB1012"
+    ]
+  },
+  {
+    "hoTen": "Hồng Thị C",
+    "gioiTinh": false,
+    "diem": 8.2,
+    "lienHe": {
+      "email": "chongthi34@fpt.edu.vn",
+      "dienThoai": "0388598451"
+    },
+    "monHoc": [
+      "WEB205",
+      "COM2034"
+    ]
+  }
+]

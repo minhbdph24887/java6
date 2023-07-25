@@ -1,0 +1,26 @@
+[
+  {
+    "hoTen": "Bui Duc Minh",
+    "gioiTinh": true,
+    "diem": 8.5,
+    "email": "minhbdph24887@fpt.edu.vn"
+  },
+  {
+    "hoTen": "Nguyen Thi Thuy Hien",
+    "gioiTinh": false,
+    "diem": 8.5,
+    "email": "hiennttph25063@fpt.edu.vn"
+  },
+  {
+    "hoTen": "Nguyen Van A",
+    "gioiTinh": true,
+    "diem": 4.4,
+    "email": "anv144@fpt.edu.vn"
+  },
+  {
+    "hoTen": "Trinh Thi N",
+    "gioiTinh": false,
+    "diem": 8.3,
+    "email": "ntt3534@fpt.edu.vn"
+  }
+]

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="container">
+    <h3>RESTfull - File Manager</h3>
+    <div ng-app="app" ng-controller="ctrl">
+        <lable>
+            <input type="file" accept="image/*" multiple onchange="angular.element(this).scope().upload(this.files)" />
+        </lable>
+        <hr>
+        <label ng-repeat="filename in filename" title="Cham 2 Lan De Xoa">
+            <img ng-src="{{url(filename)}}" ng-dblclick="delete(filename)">
+        </label>
+    </div>
+    <script src="file-ctrl.js"></script>
+</body>
+
+</html>

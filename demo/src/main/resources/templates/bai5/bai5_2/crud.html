@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+    <h2>RESUTfull Consumer - AngularJS</h2>
+    <div>
+        <input ng-model="form.email" placeholder="Nhập Email"><br>
+        <input ng-model="form.fullname" placeholder="Nhập Họ Tên"><br>
+        <input ng-model="form.marks" placeholder="Nhập Điểm"><br>
+        <input ng-model="form.gender" ng-value="true" type="radio">Nam
+        <input ng-model="form.gender" ng-value="false" type="radio">Nữ<br>
+        <select ng-model="form.country">
+            <option value="VN">Việt Nam</option>
+            <option value="US">United States</option>
+        </select>
+        <hr>
+        <button ng-click="create()">Create</button>
+        <button ng-click="update()">Update</button>
+        <button ng-click="delete(form.email)">Delete</button>
+        <button ng-click="resert()">Resert</button>
+    </div>
+    <p></p>
+    <table style="font-family: arial, sans-serif; border-collapse: collapse; width: 100%;">
+        <tr>
+            <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Email Address</th>
+            <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Full Name</th>
+            <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Marks</th>
+            <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Gender</th>
+            <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Country</th>
+            <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;"></th>
+        </tr>
+        <tr ng-repeat="stu in items">
+            <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{stu.email}}</td>
+            <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{stu.fullname}}</td>
+            <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{stu.marks}}</td>
+            <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{stu.gender ? 'Nam' : 'Nữ'}}</td>
+            <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{stu.country}}</td>
+            <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                <button ng-click="edit(stu.email)">Edit</button>
+                <button ng-click="delete(stu.email)">Delete</button>
+            </td>
+        </tr>
+    </table>
+    <script src="crud-ctrl.js"></script>
+</body>
+
+</html>

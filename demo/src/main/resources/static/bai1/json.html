@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const sinhVien = {
+        "HoVaTen": "Bùi Đức Minh",
+        "GioiTinh": true,
+        "Diem": 8.5,
+        "LienHe": {
+            "email": "minhbdph24887@fpt.edu.vn",
+            "DienThoai": "0388598451"
+        },
+        "monHoc": ["WEB205", "COM108"]
+    };
+
+    // Xuất Đối Tượng
+    console.log(sinhVien);
+    // chạy spring boot rồi chạy trình duyệt với đường dẫn http://localhost:8080/demo1.html
+
+    // Truy vấn thuộc tính
+    sinhVien.HoVaTen = sinhVien['HoVaTen'].toLocaleUpperCase();
+    console.log(sinhVien.HoVaTen, sinhVien.LienHe.email, sinhVien.monHoc[0])
+
+    // Duyệt đối tượng theo key
+    for (var key in sinhVien) {
+        console.log(key, sinhVien[key])
+    }
+
+    // Chuyển đổi đối tượng JSON sang chuỗi
+    var text = JSON.stringify(sinhVien)
+    console.log(text)
+
+    // Chuyển đổi chuỗi sang đối tượng JSON
+    var obj = JSON.parse(text);
+    console.log(obj, obj.HoVaTen)
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="dynamic(view)">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <img th:src="@{/image/logo.jpg}"/>
+</header>
+<hr>
+<nav th:insert="~{bai3/layout/nav.html :: navbar}"></nav>
+<hr>
+<main th:replace="${view}"></main>
+<hr>
+<hr>
+<hr>
+<footer>
+    FPT Polytechnic &copy; 2023.All rights reserved.
+</footer>
+</body>
+</html>
