@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+<p>
+    <a href="/nhan-vien/view-add" type="button" class="btn btn-info btn-lg">Them Nhan Vien</a>
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ma Nhan Vien</th>
+        <th>Ten Nhan Vien</th>
+        <th>Gioi Tinh</th>
+        <th>Ngay Sinh</th>
+        <th>Ten Chuc Vu</th>
+        <th>Dia Chi</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="entry: ${listNhanVien}" th:object="${entry.value}">
+        <td>[[*{maNhanVien}]]</td>
+        <td>[[*{tenNhanVien}]]</td>
+        <td>[[*{gioiTinh}]] ? 'Nam' : 'Nu'</td>
+        <td>[[*{ngaySinh}]]</td>
+        <td>[[*{chucVu.tenChucVu}]]</td>
+        <td>[[*{diaChi}]]</td>
+        <td>
+            <a th:href="">Detail</a>
+            <a th:href="">Remove</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

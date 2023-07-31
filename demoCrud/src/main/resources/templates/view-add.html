@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Nhan Vien</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+<form action="#" th:action="@{/nhan-vien/add}" th:object="${viewAdd}" method="POST">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-2">
+                <label for="tenNhanVien">Ho Va Ten Nhan Vien: </label>
+            </div>
+            <div class="form-group col-md-10">
+                <input type="text" th:field="*{tenNhanVien}" class="form-control" id="tenNhanVien"
+                       placeholder="Nhap Ho Va Ten"/>
+                <span th:error="*{tenNhanVien}"></span>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-2">
+                <label>Gioi Tinh Nhan Vien: </label>
+            </div>
+            <div class="form-group col-md-10">
+                <label>
+                    <input type="radio" th:field="*{gioiTinh}" th:checked="checked" th:value="true" th:text="Nam"/>
+                    <input type="radio" th:field="*{gioiTinh}" th:value="false" th:text="Nu"/>
+                </label>
+                <span th:error="*{tenNhanVien}"></span>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-2">
+                <label for="ngaySinh">Ngay Sinh Nhan Vien: </label>
+            </div>
+            <div class="form-group col-md-10">
+                <input type="date" th:field="*{ngaySinh}" class="form-control" id="ngaySinh"/>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-2">
+                <label for="chucVu">Chuc Vu Nhan Vien: </label>
+            </div>
+            <div class="form-group col-md-8">
+                <select th:field="*{chucVu}" id="chucVu" class="form-control">
+                    <option th:each="items : ${listChucVu}" th:value="${items.idChucVu}"
+                            th:text="${items.tenChucVu}"></option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <a href="/chuc-vu/view-add" type="button" class="btn btn-info btn-lg">Them Chuc Vu</a>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-2">
+                <label for="diaChi">Dia Chi Nhan Vien: </label>
+            </div>
+            <div class="form-group col-md-10">
+                <input type="text" th:field="*{diaChi}" class="form-control" id="diaChi"
+                       placeholder="Nhap Dia Chi"/>
+                <span th:error="*{diaChi}"></span>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-4"></div>
+            <div class="form-group col-md-8">
+                <button type="reset" class="btn btn-info">Lam Moi</button>
+                <button type="submit" class="btn btn-success">Them</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

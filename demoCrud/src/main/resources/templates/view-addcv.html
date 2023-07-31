@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Them Chuc Vu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+<p>
+    <a href="/nhan-vien/view-add" type="button" class="btn btn-info btn-lg">Tro Lai</a>
+</p>
+<form th:object="${viewAddCV}" method="post">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-2">
+                <label for="tenChucVu">Ten Chuc Vu: </label>
+            </div>
+            <div class="form-group col-md-10">
+                <input type="text" th:field="*{tenChucVu}" class="form-control" id="tenChucVu"
+                       placeholder="Nhap Ten Chuc Vu"/>
+                <span th:error="*{tenChucVu}"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-4"></div>
+            <div class="form-group col-md-8">
+                <button type="reset" class="btn btn-info">Lam Moi</button>
+                <button type="submit" th:formaction="@{|/chuc-vu/add|}" class="btn btn-success">Them</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
