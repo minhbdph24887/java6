@@ -6,9 +6,7 @@ import com.example.demo.bai4.bai4_5_SU_DUNG_RESTTEMPLATE_LAM_VIEC_VOI_RESTFUL_AP
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,7 +16,7 @@ public class Student4_5Controller {
 
     @RequestMapping("/student4_5/index")
     public String index(Model model) {
-        Student student = new Student("", "", 0.0, true, "VN");
+        Student student = new Student("minhbdph24887@gmail.com", "Bui Duc Minh", 0.0, true, "VN");
         model.addAttribute("form", student);
         StudentMap studentMap = studentService.getAll();
         model.addAttribute("items", studentMap);

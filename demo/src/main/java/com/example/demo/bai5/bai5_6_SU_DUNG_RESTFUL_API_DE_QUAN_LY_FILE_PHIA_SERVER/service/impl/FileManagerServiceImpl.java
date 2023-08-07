@@ -66,6 +66,7 @@ public class FileManagerServiceImpl implements FileManagerService {
         File file = Paths.get(servletContext.getRealPath("/files/"), folder).toFile();
         if (file.exists()) {
             File[] file1 = file.listFiles();
+            assert file1 != null;
             for (File file2 : file1) {
                 list.add(file2.getName());
             }

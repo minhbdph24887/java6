@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www/thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{:: main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Info</title>
+</head>
+
+<body>
+    <main>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Giỏ Hàng Của Tôi</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Gía</th>
+                        <th>Số Lượng</th>
+                        <th>Tổng Tiền</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="listProduct in cart.listProduct">
+                        <td>{{listProduct.idProduct}}</td>
+                        <td>{{listProduct.nameProduct}}</td>
+                        <td>{{listProduct.price | number : 2}} VND</td>
+                        <td>
+                            <input type="number" ng-change="cart.saveToLoaclStorage()" ng-model="listProduct.qty" min="1" style="width: 100px;">
+                        </td>
+                        <td>{{listProduct.qty * listProduct.price | number : 2}} VND</td>
+                        <td>
+                            <button ng-click="cart.remove(listProduct.idProduct)" class="btn btn-sm btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="panel-footer">
+                <button ng-click="cart.clear()" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i> Xoá Tất Cả
+                </button>
+                <a th:href="@{|/order/checkout|}" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-hand-right"></i> Đặt Hàng
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
